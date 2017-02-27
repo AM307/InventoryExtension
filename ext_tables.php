@@ -35,11 +35,3 @@ $TCA['tx_inventory_domain_model_product'] = array (
         '0' => array('showitem' => 'name, description, quantity')
     )
 );
-
-call_user_func(function($packageKey) {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        'AM307.' . $packageKey,
-        'List',
-        'The Inventory List'
-    );
-}, $_EXTKEY);
