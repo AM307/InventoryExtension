@@ -1,0 +1,17 @@
+{
+  "name": "AM307/Inventory",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "AM307",
+      "email": "mategka.andre@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AM307\\Inventory\\": "Classes/"
+    }
+  }
+}
