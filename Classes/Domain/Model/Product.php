@@ -2,6 +2,8 @@
 namespace AM307\Inventory\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Product extends AbstractEntity {
     /**
@@ -19,10 +21,22 @@ class Product extends AbstractEntity {
      **/
     protected $quantity = 0;
 
+    /**
+     * category
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<AM307\Inventory\Domain\Model\Category>
+     */
+    protected $category = null;
+
     public function __construct($name = '', $description = '', $quantity = 0) {
         $this->setName($name);
         $this->setDescription($description);
         $this->setQuantity($quantity);
+        $this->initStorageObjects();
+    }
+
+    protected function initStorageObjects() {
+        $this->category = new ObjectStorage();
     }
 
     public function setName($name) {
@@ -47,6 +61,14 @@ class Product extends AbstractEntity {
 
     public function getQuantity() {
         return $this->quantity;
+    }
+
+    public function setCategory($category) {
+        $this->category = $category;
+    }
+
+    public function getCategory() {
+        return $this->category->current();
     }
 
 }

@@ -3,12 +3,16 @@
         <td>Productname</td>
         <td>Productdescription</td>
         <td>Quantity</td>
+        <td>Kategorie</td>
     </tr>
     <f:for each="{products}" as="product">
         <tr>
+            <!--<td align="top">{category.name}</td>
+            <td align="top">{category.products}</td>-->
             <td align="top">{product.name}</td>
-            <td align="top"><f:format.crop maxCharacters="100">{product.description}</f:format.crop></td>
+            <td align="top">{product.description}</td>
             <td align="top">{product.quantity}</td>
+            <td align="top">{product.category.name}</td>
         </tr>
     </f:for>
 </table>
