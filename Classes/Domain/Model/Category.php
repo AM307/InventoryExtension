@@ -3,6 +3,7 @@ namespace AM307\Inventory\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class Category extends AbstractEntity {
     /**
@@ -47,15 +48,15 @@ class Category extends AbstractEntity {
     }
 
     public function getProducts() {
-//        if ($this->products === null) {
-//            $productRepository = $this->objectManager->get('AM307\\Inventory\\Domain\\Repository\\ProductRepository');
-//            $products = $productRepository->findByCategory($this->getUid());
-//            $this->products = new ObjectStorage();
-//            foreach ($products as $product) {
-//                $this->products->attach($product);
-//            }
-//        }
-
+        if ($this->products === null) {
+            $objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+            $productRepository = $objectManager->get('AM307\\Inventory\\Domain\\Repository\\ProductRepository');
+            $products = $productRepository->findByCategory($this->getUid());
+            $this->products = new ObjectStorage();
+            foreach ($products as $product) {
+                $this->products->attach($product);
+            }
+        }
         return $this->products;
     }
 

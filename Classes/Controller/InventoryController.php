@@ -7,16 +7,12 @@ use AM307\Inventory\Domain\Repository\ProductRepository;
 
 class InventoryController extends ActionController {
     public function listAction() {
-        //$categoryRepository = $this->objectManager->get(CategoryRepository::class);
-        $productRepository = $this->objectManager->get(ProductRepository::class);
+        $categoryRepository = $this->objectManager->get(CategoryRepository::class);
         $persistenceManager = $this->objectManager->get(
             'TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager'
         );
-        $productRepository->injectPersistenceManager($persistenceManager);
-        //$categoryRepository->injectPersistenceManager($persistenceManager);
-        //$categories = $categoryRepository->findAll();
-        $products = $productRepository->findAll();
-        //$this->view->assign('categories', $categories);
-        $this->view->assign('products', $products);
+        $categoryRepository->injectPersistenceManager($persistenceManager);
+        $categories = $categoryRepository->findAll();
+        $this->view->assign('categories', $categories);
     }
 }
