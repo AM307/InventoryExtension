@@ -54,7 +54,7 @@ class Category extends AbstractEntity {
             $products = $productRepository->findByCategory($this->getUid());
             $this->products = new ObjectStorage();
             foreach ($products as $product) {
-                $this->products->attach($product);
+                $this->addProduct($product);
             }
         }
         return $this->products;

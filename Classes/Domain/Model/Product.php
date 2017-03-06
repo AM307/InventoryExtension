@@ -24,7 +24,7 @@ class Product extends AbstractEntity {
     /**
      * category
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<AM307\Inventory\Domain\Model\Category>
+     * @var AM307\Inventory\Domain\Model\Category
      */
     protected $category = null;
 
@@ -32,11 +32,6 @@ class Product extends AbstractEntity {
         $this->setName($name);
         $this->setDescription($description);
         $this->setQuantity($quantity);
-        $this->initStorageObjects();
-    }
-
-    protected function initStorageObjects() {
-        $this->category = new ObjectStorage();
     }
 
     public function setName($name) {
@@ -68,7 +63,7 @@ class Product extends AbstractEntity {
     }
 
     public function getCategory() {
-        return $this->category->current();
+        return $this->category;
     }
 
 }
