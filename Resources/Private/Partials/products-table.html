@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Beschreibung</td>
+            <td>Stückzahl</td>
+        </tr>
+    </thead>
+    <tbody>
+        <f:for each="{category.products}" as="product">
+            <tr>
+                <td align="top">{product.name}</td>
+                <td align="top">{product.description}</td>
+                <td align="top">{product.quantity}</td>
+            </tr>
+        </f:for>
+    </tbody>
+</table>
