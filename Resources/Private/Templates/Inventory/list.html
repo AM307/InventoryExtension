@@ -1,33 +1,8 @@
-<div class="panel-group" id="accordion">
-    <f:for each="{categories}" as="category">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{category.uid}">{category.name}</a>
-                </h4>
-            </div>
-            <div id="collapse-{category.uid}" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Beschreibung</td>
-                                <td>Stückzahl</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <f:for each="{category.products}" as="product">
-                                <tr>
-                                    <td align="top">{product.name}</td>
-                                    <td align="top">{product.description}</td>
-                                    <td align="top">{product.quantity}</td>
-                                </tr>
-                            </f:for>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </f:for>
-</div>
+<f:layout name="header-layout" />
+<f:section name="category-list">
+    <div class="panel-group" id="accordion">
+        <f:for each="{categories}" as="category">
+            <f:render partial="category-panel" arguments="{category: category}" />
+        </f:for>
+    </div>
+</f:section>
