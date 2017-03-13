@@ -5,7 +5,7 @@ call_user_func(
     function($extKey) {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'AM307.Inventory',
-            'MATList',
+            'List',
             array('Inventory' => 'list')
         );
     },
