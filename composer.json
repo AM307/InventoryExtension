@@ -1,5 +1,5 @@
 {
-  "name": "AM307/Inventory",
+  "name": "am307/inventory",
   "description": "",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -13,5 +13,9 @@
     "psr-4": {
       "AM307\\Inventory\\": "Classes/"
     }
+  },
+  "replace": {
+    "inventory": "self.version",
+    "typo3-ter/inventory": "self.version"
   }
 }
