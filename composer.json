@@ -3,6 +3,7 @@
   "description": "",
   "minimum-stability": "stable",
   "license": "proprietary",
+  "type": "typo3-cms-extension",
   "authors": [
     {
       "name": "AM307",
